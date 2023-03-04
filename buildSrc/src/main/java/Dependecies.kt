@@ -7,8 +7,6 @@ object Dependencies {
     //android ui
     private val appcompat = "androidx.appcompat:appcompat:${Versions.Androidx.appcompat}"
     private val coreKtx = "androidx.core:core-ktx:${Versions.Androidx.coreKtx}"
-    private val constraintLayout =
-        "androidx.constraintlayout:constraintlayout:${Versions.Androidx.constraintLayout}"
     private val lifecycleRuntime =
         "androidx.lifecycle:lifecycle-runtime-ktx:${Versions.Androidx.lifecycleRuntime}"
     private val activityCompose =
@@ -36,7 +34,6 @@ object Dependencies {
         add(kotlinStdLib)
         add(coreKtx)
         add(appcompat)
-        add(constraintLayout)
         add(lifecycleRuntime)
         add(activityCompose)
         add(composeUI)
