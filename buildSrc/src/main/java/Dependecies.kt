@@ -27,8 +27,10 @@ object Dependencies {
     //test libs
     private val junit = "junit:junit:${Versions.Test.jUnit}"
     private val extJUnit = "androidx.test.ext:junit:${Versions.Androidx.Test.extJUnit}"
-    private val espressoCore = "androidx.test.espresso:espresso-core:${Versions.Androidx.Test.espresso}"
-    private val composeUITestJunit = "androidx.compose.ui:ui-test-junit4:${Versions.Androidx.compose}"
+    private val espressoCore =
+        "androidx.test.espresso:espresso-core:${Versions.Androidx.Test.espresso}"
+    private val composeUITestJunit =
+        "androidx.compose.ui:ui-test-junit4:${Versions.Androidx.compose}"
 
     val appLibraries = arrayListOf<String>().apply {
         add(kotlinStdLib)
