@@ -2,8 +2,8 @@ import org.gradle.api.JavaVersion
 
 //app level config constants
 object AppConfig {
-    const val namespace = "com.spoonofcode"
-    const val applicationId = "com.spoonofcode"
+    const val namespace = "com.spoonofcode.androiddemoapp"
+    const val applicationId = "com.spoonofcode.androiddemoapp"
     const val compileSdk = 33
     const val minSdk = 24
     const val targetSdk = 33
