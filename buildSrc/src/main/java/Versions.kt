@@ -14,9 +14,10 @@ object Versions {
         const val compose = "1.3.1"
         const val material3 = "1.0.1"
         const val appcompat = "1.6.1"
+        const val navigation = "2.5.3"
 
         object Test {
-            const val extJUnit = "1.9.0"
+            const val extJUnit = "1.1.5"
             const val espresso = "3.5.1"
         }
     }

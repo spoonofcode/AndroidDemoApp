@@ -71,9 +71,28 @@ dependencies {
     //std lib
     implementation(fileTree(mapOf("dir" to "libs", "include" to listOf("*.jar"))))
     //app libs
-    implementation(Dependencies.appLibraries)
+    implementation(Dependencies.kotlinStdLib)
+    implementation(Dependencies.coreKtx)
+    implementation(Dependencies.appcompat)
+    implementation(Dependencies.lifecycleRuntime)
+    implementation(Dependencies.activityCompose)
+    implementation(Dependencies.navigation)
+    implementation(Dependencies.composeUI)
+    implementation(Dependencies.composeUIToolingPreview)
+    implementation(Dependencies.composeMaterial3)
+    implementation(Dependencies.composeUITooling)
+    implementation(Dependencies.composeUITestManifest)
+    implementation(Dependencies.composeMaterial)
+    implementation(Dependencies.composeUITestManifest)
+
     //test libs
     testImplementation(Dependencies.testLibraries)
     androidTestImplementation(Dependencies.androidTestLibraries)
 
+    implementation(project(":core:navigation"))
+    implementation(project(":core:ui"))
+    implementation(project(":feature:login"))
+    implementation(project(":feature:home"))
+    implementation(project(":feature:profile"))
+    implementation(project(":feature:search"))
 }
