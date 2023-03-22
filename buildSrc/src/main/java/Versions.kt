@@ -3,7 +3,7 @@ object Versions {
     //app level
     const val gradle = "7.4.0"
     const val kotlin = "1.7.20"
-    const val jvmTarget = "1.8"
+    const val jvmTarget = "11"
     const val composeCompiler = "1.3.2"
 
     //libs
