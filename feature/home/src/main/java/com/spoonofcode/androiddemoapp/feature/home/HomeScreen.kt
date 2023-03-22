@@ -35,7 +35,7 @@ fun HomeScreen(
         }
 
         Button(
-            onClick = { navigateToSearch("liang moi") }
+            onClick = { navigateToSearch("Example query") }
         ) {
             Text(text = "Search")
         }

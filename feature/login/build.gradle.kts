@@ -4,7 +4,7 @@ plugins {
 }
 
 android {
-    namespace = "com.spoonofcode.feature.login"
+    namespace = "com.spoonofcode.androiddemoapp.feature.login"
     compileSdk = 33
 
     defaultConfig {
