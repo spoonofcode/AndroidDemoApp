@@ -1,61 +1,23 @@
 plugins {
-    id("com.android.library")
-    id("org.jetbrains.kotlin.android")
+    id("androiddemoapp.android.library")
+    id("androiddemoapp.android.library.compose")
 }
 
 android {
-    namespace = "com.spoonofcode.androiddemoapp.core.ui"
-    compileSdk = 33
-
     defaultConfig {
-        minSdk = 24
-        targetSdk = 33
-
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
-        consumerProguardFiles("consumer-rules.pro")
     }
-
-    buildTypes {
-        release {
-            isMinifyEnabled = false
-            proguardFiles(
-                getDefaultProguardFile("proguard-android-optimize.txt"),
-                "proguard-rules.pro"
-            )
-        }
-    }
-
-    buildFeatures {
-        compose = true
-    }
-    composeOptions {
-        kotlinCompilerExtensionVersion = Versions.composeCompiler
-    }
-
-    compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_11
-        targetCompatibility = JavaVersion.VERSION_11
-    }
-    kotlinOptions {
-        jvmTarget = "11"
-    }
+    namespace = "com.spoonofcode.androiddemoapp.core.ui"
 }
 
 dependencies {
+    api(libs.androidx.compose.foundation)
+    api(libs.androidx.compose.foundation.layout)
+    api(libs.androidx.compose.material3)
+    api(libs.androidx.compose.runtime)
+    api(libs.androidx.compose.runtime.livedata)
+    api(libs.androidx.compose.ui.tooling.preview)
+    api(libs.androidx.compose.ui.util)
 
-    implementation("androidx.core:core-ktx:1.7.0")
-    implementation("androidx.appcompat:appcompat:1.6.1")
-    implementation("com.google.android.material:material:1.8.0")
-    testImplementation("junit:junit:4.13.2")
-    androidTestImplementation("androidx.test.ext:junit:1.1.5")
-    androidTestImplementation("androidx.test.espresso:espresso-core:3.5.1")
-
-    implementation(Dependencies.composeUI)
-    implementation(Dependencies.composeUIToolingPreview)
-    implementation(Dependencies.composeMaterial3)
-    implementation(Dependencies.composeUITooling)
-    implementation(Dependencies.composeUITestManifest)
-    implementation(Dependencies.composeMaterial)
-    implementation(Dependencies.composeUITestManifest)
-
+    implementation(libs.androidx.core.ktx)
 }

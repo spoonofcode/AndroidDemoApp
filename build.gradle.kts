@@ -3,12 +3,11 @@ buildscript {
         google()
         mavenCentral()
     }
-    dependencies {
-        classpath("com.android.tools.build:gradle:${Versions.gradle}")
-        classpath("org.jetbrains.kotlin:kotlin-gradle-plugin:${Versions.kotlin}")
-    }
 }
 
-tasks.register("clean", Delete::class) {
-    delete(rootProject.buildDir)
+// Lists all plugins used throughout the project without applying them.
+plugins {
+    alias(libs.plugins.android.application) apply false
+    alias(libs.plugins.kotlin.jvm) apply false
+    alias(libs.plugins.ksp) apply false
 }
