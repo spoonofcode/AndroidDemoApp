@@ -1,20 +1,16 @@
 plugins {
-    id("com.android.application")
-    kotlin("android")
+    id("androiddemoapp.android.application")
+    id("androiddemoapp.android.application.compose")
+    id("androiddemoapp.android.application.flavors")
 }
 
 android {
-    namespace = AppConfig.namespace
-    compileSdk = AppConfig.compileSdk
-
     defaultConfig {
-        applicationId = AppConfig.applicationId
-        minSdk = AppConfig.minSdk
-        targetSdk = AppConfig.targetSdk
-        versionCode = AppConfig.versionCode
-        versionName = AppConfig.versionName
+        applicationId = "com.spoonofcode.androiddemoapp"
+        versionCode = 1
+        versionName = "1.0.0"
 
-        testInstrumentationRunner = AppConfig.androidTestInstrumentation
+        testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         vectorDrawables {
             useSupportLibrary = true
         }
@@ -33,64 +29,28 @@ android {
         }
     }
 
-    flavorDimensions(AppConfig.dimension)
-    productFlavors {
-        create("staging") {
-            applicationIdSuffix = ".staging"
-            dimension = AppConfig.dimension
-        }
-
-        create("production") {
-            dimension = AppConfig.dimension
-        }
-    }
-
     packagingOptions {
         resources {
             exclude("/META-INF/{AL2.0,LGPL2.1}")
         }
     }
-
-    compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_1_8
-        targetCompatibility = JavaVersion.VERSION_1_8
-    }
-    kotlinOptions {
-        jvmTarget = Versions.jvmTarget
-    }
-    buildFeatures {
-        compose = true
-    }
-    composeOptions {
-        kotlinCompilerExtensionVersion = Versions.composeCompiler
-    }
-
 }
 
 dependencies {
-    //std lib
-    implementation(fileTree(mapOf("dir" to "libs", "include" to listOf("*.jar"))))
-    //app libs
-    implementation(Dependencies.kotlinStdLib)
-    implementation(Dependencies.coreKtx)
-    implementation(Dependencies.appcompat)
-    implementation(Dependencies.lifecycleRuntime)
-    implementation(Dependencies.activityCompose)
-    implementation(Dependencies.navigation)
-    implementation(Dependencies.composeUI)
-    implementation(Dependencies.composeUIToolingPreview)
-    implementation(Dependencies.composeMaterial3)
-    implementation(Dependencies.composeUITooling)
-    implementation(Dependencies.composeUITestManifest)
-    implementation(Dependencies.composeMaterial)
-    implementation(Dependencies.composeUITestManifest)
+    // app libs
+    implementation(libs.androidx.activity.compose)
+    implementation(libs.androidx.appcompat)
+    implementation(libs.androidx.navigation.compose)
+    implementation(libs.androidx.compose.material3)
+    implementation(libs.androidx.compose.material)
 
     //test libs
-    testImplementation(Dependencies.testLibraries)
-    androidTestImplementation(Dependencies.androidTestLibraries)
 
+    // core modules
     implementation(project(":core:navigation"))
     implementation(project(":core:ui"))
+
+    // feature modules
     implementation(project(":feature:login"))
     implementation(project(":feature:home"))
     implementation(project(":feature:profile"))
