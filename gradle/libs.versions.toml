@@ -1,5 +1,4 @@
 [versions]
-accompanist = "0.28.0"
 androidDesugarJdkLibs = "1.2.2"
 androidGradlePlugin = "7.4.1"
 androidxActivity = "1.6.1"
@@ -17,9 +16,6 @@ kotlin = "1.8.0"
 ksp = "1.8.0-1.0.9"
 
 [libraries]
-accompanist-flowlayout = { group = "com.google.accompanist", name = "accompanist-flowlayout", version.ref = "accompanist" }
-accompanist-systemuicontroller = { group = "com.google.accompanist", name = "accompanist-systemuicontroller", version.ref = "accompanist" }
-accompanist-testharness = { group = "com.google.accompanist", name = "accompanist-testharness", version.ref = "accompanist" }
 android-desugarJdkLibs = { group = "com.android.tools", name = "desugar_jdk_libs", version.ref = "androidDesugarJdkLibs" }
 androidx-activity-compose = { group = "androidx.activity", name = "activity-compose", version.ref = "androidxActivity" }
 androidx-appcompat = { group = "androidx.appcompat", name = "appcompat", version.ref = "androidxAppCompat" }
