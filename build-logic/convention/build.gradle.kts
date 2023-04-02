@@ -45,5 +45,9 @@ gradlePlugin {
             id = "androiddemoapp.android.application.flavors"
             implementationClass = "AndroidApplicationFlavorsConventionPlugin"
         }
+        register("androidKoin") {
+            id = "androiddemoapp.android.koin"
+            implementationClass = "AndroidKoinConventionPlugin"
+        }
     }
 }
