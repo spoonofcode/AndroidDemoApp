@@ -10,15 +10,15 @@ import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
-import androidx.lifecycle.viewmodel.compose.viewModel
 import com.spoonofcode.androiddemoapp.core.ui.theme.AndroidDemoAppTheme
+import org.koin.androidx.compose.koinViewModel
 
 @Composable
 fun ProfileScreen(
     popBackStack: () -> Unit,
     popUpToLogin: () -> Unit
 ) {
-    val viewModel = viewModel<ProfileViewModel>()
+    val viewModel = koinViewModel<ProfileViewModel>()
     val viewState by viewModel.stateFlow.collectAsState()
 
     Column(
