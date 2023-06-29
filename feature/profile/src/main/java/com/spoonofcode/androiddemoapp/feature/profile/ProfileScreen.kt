@@ -10,7 +10,10 @@ import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.spoonofcode.androiddemoapp.core.ui.theme.AndroidDemoAppTheme
+import com.spoonofcode.androiddemoapp.model.User
+import kotlinx.coroutines.flow.first
 import org.koin.androidx.compose.koinViewModel
 
 @Composable
@@ -20,6 +23,10 @@ fun ProfileScreen(
 ) {
     val viewModel = koinViewModel<ProfileViewModel>()
     val viewState by viewModel.stateFlow.collectAsState()
+    val profileViewState: ProfileViewState by viewModel.stateFlow.collectAsStateWithLifecycle().value.collectAsState(
+        initial = ProfileViewState(user = User(id ="11"))
+    )
+
 
     Column(
         modifier = Modifier.fillMaxWidth(),
@@ -44,11 +51,11 @@ fun ProfileScreen(
 //        }
 
         Text(text = "ID: ")
-        Text(text = viewState.id)
+        Text(text = profileViewState.user.id)
         Text(text = "First name:")
-        Text(text = viewState.firstName)
+        Text(text = profileViewState.user.firstName)
         Text(text = "Last name")
-        Text(text = viewState.lastName)
+        Text(text = profileViewState.user.lastName)
 
 
     }

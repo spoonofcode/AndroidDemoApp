@@ -48,6 +48,7 @@ dependencies {
     //test libs
 
     // core modules
+    implementation(project(":core:common"))
     implementation(project(":core:data"))
     implementation(project(":core:model"))
     implementation(project(":core:navigation"))
