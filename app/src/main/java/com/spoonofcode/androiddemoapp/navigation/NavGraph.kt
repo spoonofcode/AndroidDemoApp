@@ -88,8 +88,6 @@ private fun addProfileScreen(
         val args = navBackStackEntry.arguments
 
         ProfileScreen(
-            id = args?.getInt(NavRoute.Profile.id)!!,
-            showDetails = args.getBoolean(NavRoute.Profile.showDetails),
             popBackStack = { navController.popBackStack() },
             popUpToLogin = { popUpToLogin(navController) }
         )

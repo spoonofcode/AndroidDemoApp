@@ -5,8 +5,8 @@ plugins {
 group = "com.spoonofcode.androiddemoapp.buildlogic"
 
 java {
-    sourceCompatibility = JavaVersion.VERSION_11
-    targetCompatibility = JavaVersion.VERSION_11
+    sourceCompatibility = JavaVersion.VERSION_17
+    targetCompatibility = JavaVersion.VERSION_17
 }
 
 dependencies {
@@ -44,6 +44,10 @@ gradlePlugin {
         register("androidFlavors") {
             id = "androiddemoapp.android.application.flavors"
             implementationClass = "AndroidApplicationFlavorsConventionPlugin"
+        }
+        register("androidKoin") {
+            id = "androiddemoapp.android.koin"
+            implementationClass = "AndroidKoinConventionPlugin"
         }
     }
 }

@@ -6,6 +6,7 @@ plugins {
 android {
     namespace = "com.spoonofcode.core.navigation"
 }
+
 dependencies {
     api(libs.androidx.compose.foundation)
     api(libs.androidx.compose.foundation.layout)

@@ -5,28 +5,32 @@ import androidx.compose.material3.Button
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.collectAsState
+import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
-import androidx.compose.ui.unit.dp
-import androidx.compose.ui.unit.sp
+import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.spoonofcode.androiddemoapp.core.ui.theme.AndroidDemoAppTheme
+import com.spoonofcode.androiddemoapp.model.User
+import kotlinx.coroutines.flow.first
+import org.koin.androidx.compose.koinViewModel
 
 @Composable
 fun ProfileScreen(
-    id: Int,
-    showDetails: Boolean,
     popBackStack: () -> Unit,
     popUpToLogin: () -> Unit
 ) {
-    Column (
+    val viewModel = koinViewModel<ProfileViewModel>()
+    val viewState: ProfileViewState by viewModel.stateFlow.collectAsStateWithLifecycle().value.collectAsState(
+        initial = ProfileViewState(user = User(id ="11"))
+    )
+
+
+    Column(
         modifier = Modifier.fillMaxWidth(),
-        horizontalAlignment = Alignment.CenterHorizontally) {
-        Text("Profile Id: $id", fontSize = 40.sp)
-
-        Spacer(modifier = Modifier.height(5.dp))
-        Text("Details: $showDetails", fontSize = 40.sp)
-
+        horizontalAlignment = Alignment.CenterHorizontally
+    ) {
         Button(
             onClick = popBackStack
         ) {
@@ -38,6 +42,14 @@ fun ProfileScreen(
         ) {
             Text(text = "Log Out")
         }
+
+        Text(text = "ID: ")
+        Text(text = viewState.user.id)
+        Text(text = "First name:")
+        Text(text = viewState.user.firstName)
+        Text(text = "Last name")
+        Text(text = viewState.user.lastName)
+
     }
 }
 
@@ -49,8 +61,6 @@ private fun DefaultPreview() {
             modifier = Modifier.fillMaxSize(),
         ) {
             ProfileScreen(
-                id = 7,
-                showDetails = true,
                 popBackStack = {},
                 popUpToLogin = {}
             )

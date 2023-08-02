@@ -1,5 +1,6 @@
 plugins {
     id("androiddemoapp.android.application")
+    id("androiddemoapp.android.koin")
     id("androiddemoapp.android.application.compose")
     id("androiddemoapp.android.application.flavors")
 }
@@ -47,7 +48,11 @@ dependencies {
     //test libs
 
     // core modules
+    implementation(project(":core:common"))
+    implementation(project(":core:data"))
+    implementation(project(":core:model"))
     implementation(project(":core:navigation"))
+    implementation(project(":core:network"))
     implementation(project(":core:ui"))
 
     // feature modules

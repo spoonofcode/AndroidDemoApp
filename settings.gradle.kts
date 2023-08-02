@@ -17,9 +17,15 @@ dependencyResolutionManagement {
 
 rootProject.name = "AndroidDemoApp"
 include(":app")
+
+include(":core:common")
+include(":core:data")
+include(":core:model")
 include(":core:navigation")
+include(":core:network")
+include(":core:ui")
+
 include(":feature:login")
 include(":feature:home")
 include(":feature:profile")
 include(":feature:search")
-include(":core:ui")
