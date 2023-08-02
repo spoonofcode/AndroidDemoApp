@@ -22,8 +22,7 @@ fun ProfileScreen(
     popUpToLogin: () -> Unit
 ) {
     val viewModel = koinViewModel<ProfileViewModel>()
-    val viewState by viewModel.stateFlow.collectAsState()
-    val profileViewState: ProfileViewState by viewModel.stateFlow.collectAsStateWithLifecycle().value.collectAsState(
+    val viewState: ProfileViewState by viewModel.stateFlow.collectAsStateWithLifecycle().value.collectAsState(
         initial = ProfileViewState(user = User(id ="11"))
     )
 
@@ -44,19 +43,12 @@ fun ProfileScreen(
             Text(text = "Log Out")
         }
 
-//        Button(
-//            onClick = { viewModel.triggerStateFlow() }
-//        ) {
-//            Text(text = "Test Bartek")
-//        }
-
         Text(text = "ID: ")
-        Text(text = profileViewState.user.id)
+        Text(text = viewState.user.id)
         Text(text = "First name:")
-        Text(text = profileViewState.user.firstName)
+        Text(text = viewState.user.firstName)
         Text(text = "Last name")
-        Text(text = profileViewState.user.lastName)
-
+        Text(text = viewState.user.lastName)
 
     }
 }
